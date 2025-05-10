@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from "react";
-import Compass from "./component/compass/Compass";
+import React from 'react'
+import './App.css'
+import WeatherDashboard from './components/WeatherDashboard'
 
-const App = () => {
-  const [degree, setDegree] = useState(0);
-
+function App() {
   return (
-    <div>
-      
-      <input
-        type="number"
-        value={degree}
-        onChange={(e) => setDegree(Number(e.target.value))}
-      />
-      <p />
-      <Compass degree={degree} />
+    <div className="app">
+      <header className="app-header">
+        <h1>Weather Dashboard</h1>
+      </header>
+      <main>
+        <WeatherDashboard />
+      </main>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
