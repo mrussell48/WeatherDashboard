@@ -22,15 +22,12 @@ const Compass = ({ degree }) => {
 export default Compass;
 */
 
-
-
-
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./Compass.css";
+import compassBg from "../../assets/Compass.svg";
 
 const Compass = ({ degree }) => {
-
     const [preDegree, setPreDegree] = useState(0);
     const arrowRef = useRef(null);
 
@@ -46,17 +43,9 @@ const Compass = ({ degree }) => {
 
     return (
         <div className="compass">
+            <img src={compassBg} alt="compass background" className="compass-bg" />
             <div ref={arrowRef} className="arrow"> </div>
-            <div className="directions">
-            <span className="north">N</span>
-            <span className="east">E</span>
-            <span className="south">S</span>
-            <span className="west">W</span>
-            <span className="ne">NE</span>
-            <span className="nw">NW</span>
-            <span className="se">SE</span>
-            <span className="sw">SW</span>
-        </div>
+            
         </div>
     );
 };
