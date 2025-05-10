@@ -9,7 +9,7 @@ const CurrentWeather = ({ weather }) => {
       <div className="weather-grid">
         <div className="weather-card">
           <h3>Temperature</h3>
-          <p>{weather.temperature}°C</p>
+          <p>{weather.temperature}°F</p>
         </div>
         <div className="weather-card wind-humidity-card">
           <div className="wind-direction">
@@ -24,6 +24,10 @@ const CurrentWeather = ({ weather }) => {
             <div className="metric">
               <h3>Humidity</h3>
               <p>{weather.humidity}%</p>
+            </div>
+            <div className="metric">
+              <h3>Pressure</h3>
+              <p>{weather.pressure} hPa</p>
             </div>
           </div>
         </div>
