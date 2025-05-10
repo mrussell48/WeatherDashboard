@@ -1,0 +1,32 @@
+.weather-map-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.weather-map-card h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+  text-align: center;
+}
+
+.map-container {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 250px;
+  }
+} 

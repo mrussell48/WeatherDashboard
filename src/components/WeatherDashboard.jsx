@@ -1,6 +1,7 @@
 import React from 'react';
 import CurrentWeather from './CurrentWeather';
 import WeatherCharts from './WeatherCharts';
+import WeatherMap from './WeatherMap';
 import './WeatherDashboard.css';
 
 const WeatherDashboard = () => {
@@ -43,6 +44,7 @@ const WeatherDashboard = () => {
         dailyRainfall={dailyRainfallData}
         weeklyRainfall={weeklyRainfallData}
       />
+      <WeatherMap />
     </div>
   );
 };
