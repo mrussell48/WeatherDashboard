@@ -37,7 +37,6 @@ const WeatherDashboard = () => {
 
   return (
     <div className="weather-dashboard">
-      <h1>Weather Dashboard</h1>
       <CurrentWeather currentWeather={currentWeather} />
       <WeatherCharts dailyData={dailyData} weeklyData={weeklyData} />
       <WeatherMap />

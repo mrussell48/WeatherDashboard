@@ -1,7 +1,11 @@
 .weather-dashboard {
-  padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .current-weather {
@@ -56,6 +60,11 @@
 }
 
 @media (max-width: 768px) {
+  .weather-dashboard {
+    padding: 10px;
+    gap: 15px;
+  }
+  
   .weather-charts {
     grid-template-columns: 1fr;
   }
