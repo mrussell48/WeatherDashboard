@@ -1,44 +1,79 @@
 # Weather Dashboard
 
-A modern, responsive weather dashboard built with React that displays current weather conditions and historical weather data through interactive charts.
+A modern, responsive weather dashboard built with React that provides real-time weather information and forecasts. The dashboard features a clean, intuitive interface with interactive components for displaying current weather conditions, rainfall charts, and a hurricane tracking map.
 
 ## Features
 
 - **Current Weather Display**
   - Temperature
-  - Wind Speed and Direction (with interactive compass)
+  - Wind Direction (with interactive compass)
+  - Wind Speed
   - Humidity
-  - All metrics in a clean, card-based layout
+  - Barometric Pressure
 
 - **Weather Charts**
   - Daily Rainfall Chart (Line Chart)
   - Weekly Rainfall Chart (Bar Chart)
-  - Interactive and responsive charts
+  - Automatic rotation between charts
+  - Smooth transitions
+
+- **Hurricane Tracking Map**
+  - Real-time wind and pressure data
+  - Interactive controls
+  - Focused on Florida region
+  - Multiple weather layers
 
 - **Responsive Design**
   - Adapts to all screen sizes
-  - Mobile-friendly interface
-  - Clean, modern UI with cards and shadows
+  - Mobile-friendly layout
+  - Optimized component spacing
 
 ## Technologies Used
 
-- React
-- Chart.js with react-chartjs-2 for data visualization
-- GSAP for smooth animations
-- CSS3 with Flexbox and Grid for layout
-- Vite for fast development and building
+- React 18
+- Chart.js with react-chartjs-2
+- Windy.com API for weather maps
+- CSS3 with Flexbox and Grid
+- Vite for build tooling
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── compass/
+│   │   ├── Compass.jsx
+│   │   └── Compass.css
+│   ├── current-weather/
+│   │   ├── CurrentWeather.jsx
+│   │   └── CurrentWeather.css
+│   ├── weather-charts/
+│   │   ├── WeatherCharts.jsx
+│   │   └── WeatherCharts.css
+│   ├── weather-map/
+│   │   ├── WeatherMap.jsx
+│   │   └── WeatherMap.css
+│   └── WeatherDashboard.jsx
+└── App.jsx
+```
+
+## Component Overview
+
+- **Compass**: Interactive wind direction indicator with smooth animations
+- **CurrentWeather**: Displays current temperature, wind metrics, humidity, and pressure
+- **WeatherCharts**: Shows rainfall data with daily line chart and weekly bar chart
+- **WeatherMap**: Interactive hurricane tracking map with wind and pressure layers
 
 ## Prerequisites
 
-Before you begin, ensure you have the following installed:
-- Node.js (v14.0.0 or higher)
-- npm (v6.0.0 or higher)
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
 ## Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/mrussell48/WeatherDashboard.git
+   git clone https://github.com/yourusername/WeatherDashboard.git
    ```
 
 2. Navigate to the project directory:
@@ -51,7 +86,7 @@ Before you begin, ensure you have the following installed:
    npm install
    ```
 
-## Running the Project
+## Running the Application
 
 1. Start the development server:
    ```bash
@@ -62,49 +97,6 @@ Before you begin, ensure you have the following installed:
    ```
    http://localhost:5173
    ```
-
-## Building for Production
-
-To create a production build:
-
-```bash
-npm run build
-```
-
-The build files will be created in the `dist` directory.
-
-## Project Structure
-
-```
-WeatherDashboard/
-├── src/
-│   ├── components/
-│   │   ├── compass/
-│   │   │   ├── Compass.jsx
-│   │   │   └── Compass.css
-│   │   ├── CurrentWeather.jsx
-│   │   ├── CurrentWeather.css
-│   │   ├── WeatherCharts.jsx
-│   │   ├── WeatherCharts.css
-│   │   ├── WeatherDashboard.jsx
-│   │   └── WeatherDashboard.css
-│   ├── assets/
-│   │   ├── Compass.svg
-│   │   └── Arrow.svg
-│   ├── App.jsx
-│   └── App.css
-├── public/
-├── index.html
-├── package.json
-└── vite.config.js
-```
-
-## Component Overview
-
-- **WeatherDashboard**: Main container component that manages data and layout
-- **CurrentWeather**: Displays current weather metrics with a combined wind/humidity card
-- **WeatherCharts**: Renders interactive charts for rainfall data
-- **Compass**: Interactive wind direction indicator with smooth animations
 
 ## Contributing
 
@@ -120,6 +112,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- Chart.js for the powerful charting library
-- GSAP for the smooth animations
-- React community for the excellent documentation and tools
+- Windy.com for providing the weather map integration
+- Chart.js for the charting capabilities
+- React community for the excellent documentation and support
