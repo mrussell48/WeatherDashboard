@@ -1,0 +1,81 @@
+.current-weather {
+  margin-bottom: 30px;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.weather-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.weather-card h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.temperature {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.wind-humidity-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wind-direction {
+  text-align: center;
+}
+
+.wind-direction h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+.wind-humidity-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.metric {
+  text-align: center;
+}
+
+.metric h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.metric p {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+  .weather-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .wind-humidity-metrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} 

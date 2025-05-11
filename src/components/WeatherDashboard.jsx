@@ -1,49 +1,45 @@
 import React from 'react';
-import CurrentWeather from './CurrentWeather';
-import WeatherCharts from './WeatherCharts';
-import WeatherMap from './WeatherMap';
+import CurrentWeather from './current-weather/CurrentWeather';
+import WeatherCharts from './weather-charts/WeatherCharts';
+import WeatherMap from './weather-map/WeatherMap';
 import './WeatherDashboard.css';
 
 const WeatherDashboard = () => {
-  // Sample data - to be replace with actual API data
-  const dailyRainfallData = {
-    labels: ['6AM', '9AM', '12PM', '3PM', '6PM', '9PM'],
-    datasets: [
-      {
-        label: 'Daily Rainfall (mm)',
-        data: [0, 2.5, 5, 3, 1, 0],
-        borderColor: 'rgb(75, 192, 192)',
-        backgroundColor: 'rgba(75, 192, 192, 0.5)',
-      },
-    ],
-  };
-
-  const weeklyRainfallData = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    datasets: [
-      {
-        label: 'Weekly Rainfall (mm)',
-        data: [5, 8, 12, 7, 3, 2, 0],
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-    ],
-  };
-
+  // Mock data for demonstration
   const currentWeather = {
     temperature: 22,
+    windDirection: 45,
     windSpeed: 15,
-    windDirection: 45, // degrees
     humidity: 65,
-    pressure: 1013, // hPa
+    pressure: 1013
   };
+
+  const dailyData = [
+    { time: '00:00', rainfall: 0 },
+    { time: '03:00', rainfall: 2 },
+    { time: '06:00', rainfall: 5 },
+    { time: '09:00', rainfall: 3 },
+    { time: '12:00', rainfall: 1 },
+    { time: '15:00', rainfall: 0 },
+    { time: '18:00', rainfall: 0 },
+    { time: '21:00', rainfall: 0 }
+  ];
+
+  const weeklyData = [
+    { day: 'Mon', rainfall: 12 },
+    { day: 'Tue', rainfall: 8 },
+    { day: 'Wed', rainfall: 15 },
+    { day: 'Thu', rainfall: 5 },
+    { day: 'Fri', rainfall: 3 },
+    { day: 'Sat', rainfall: 0 },
+    { day: 'Sun', rainfall: 0 }
+  ];
 
   return (
     <div className="weather-dashboard">
-      <CurrentWeather weather={currentWeather} />
-      <WeatherCharts 
-        dailyRainfall={dailyRainfallData}
-        weeklyRainfall={weeklyRainfallData}
-      />
+      <h1>Weather Dashboard</h1>
+      <CurrentWeather currentWeather={currentWeather} />
+      <WeatherCharts dailyData={dailyData} weeklyData={weeklyData} />
       <WeatherMap />
     </div>
   );
