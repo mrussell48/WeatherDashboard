@@ -34,12 +34,15 @@
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
+  align-items: center;
 }
 
 .wind-direction {
   text-align: center;
+  flex: 1;
+  min-width: 200px;
 }
 
 .wind-direction h3 {
@@ -48,13 +51,17 @@
 }
 
 .wind-humidity-metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 15px;
+  flex: 2;
 }
 
 .metric {
   text-align: center;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
 }
 
 .metric h3 {
@@ -75,7 +82,15 @@
     grid-template-columns: 1fr;
   }
   
+  .wind-humidity-card {
+    flex-direction: column;
+  }
+
+  .wind-direction {
+    min-width: auto;
+  }
+  
   .wind-humidity-metrics {
-    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
   }
 } 
