@@ -7,14 +7,26 @@ import './WeatherDashboard.css';
 const WeatherDashboard = () => {
   // Mock data for demonstration
   const currentWeather = {
-    temperature: 22,
+    temperature: 72,
     windDirection: 45,
     windSpeed: 15,
     humidity: 65,
-    pressure: 1013
+    pressure: 1013,
+    description: 'Partly Cloudy'
   };
 
-  const dailyData = [
+  const dailyTempData = [
+    { time: '00:00', temperature: 68 },
+    { time: '03:00', temperature: 66 },
+    { time: '06:00', temperature: 65 },
+    { time: '09:00', temperature: 70 },
+    { time: '12:00', temperature: 75 },
+    { time: '15:00', temperature: 78 },
+    { time: '18:00', temperature: 76 },
+    { time: '21:00', temperature: 72 }
+  ];
+
+  const dailyRainData = [
     { time: '00:00', rainfall: 0 },
     { time: '03:00', rainfall: 2 },
     { time: '06:00', rainfall: 5 },
@@ -37,8 +49,11 @@ const WeatherDashboard = () => {
 
   return (
     <div className="weather-dashboard">
-      <CurrentWeather currentWeather={currentWeather} />
-      <WeatherCharts dailyData={dailyData} weeklyData={weeklyData} />
+      <CurrentWeather currentWeather={currentWeather} dailyData={dailyTempData} />
+      <WeatherCharts 
+        dailyRainData={dailyRainData} 
+        weeklyData={weeklyData} 
+      />
       <WeatherMap />
     </div>
   );
