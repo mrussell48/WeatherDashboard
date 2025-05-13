@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend
@@ -17,6 +18,7 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend
@@ -55,9 +57,9 @@ const RainfallCharts = ({ dailyRainData, weeklyData }) => {
       {
         label: 'Rainfall (mm)',
         data: weeklyData.map(data => data.rainfall),
+        backgroundColor: 'rgba(53, 162, 235, 0.8)',
         borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        tension: 0.4
+        borderWidth: 1
       }
     ]
   };
@@ -91,11 +93,14 @@ const RainfallCharts = ({ dailyRainData, weeklyData }) => {
 
   return (
     <div className="rainfall-charts">
+      <h3 className="chart-title">
+        {activeChart === 'daily' ? 'Daily Rainfall' : 'Weekly Rainfall'}
+      </h3>
       <div className="chart-container">
         {activeChart === 'daily' ? (
           <Line data={dailyChartData} options={chartOptions} />
         ) : (
-          <Line data={weeklyChartData} options={chartOptions} />
+          <Bar data={weeklyChartData} options={chartOptions} />
         )}
       </div>
     </div>
