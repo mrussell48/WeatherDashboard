@@ -1,6 +1,6 @@
 import React from 'react';
 import CurrentWeather from './current-weather/CurrentWeather';
-import WeatherCharts from './weather-charts/WeatherCharts';
+import RainfallCharts from './rainfall-charts/RainfallCharts.jsx';
 import WeatherMap from './weather-map/WeatherMap';
 import './WeatherDashboard.css';
 
@@ -50,7 +50,7 @@ const WeatherDashboard = () => {
   return (
     <div className="weather-dashboard">
       <CurrentWeather currentWeather={currentWeather} dailyData={dailyTempData} />
-      <WeatherCharts 
+      <RainfallCharts 
         dailyRainData={dailyRainData} 
         weeklyData={weeklyData} 
       />
