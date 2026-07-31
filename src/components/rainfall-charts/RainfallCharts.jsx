@@ -11,7 +11,7 @@ import {
   Tooltip,
   Legend
 } from 'chart.js';
-import './WeatherCharts.css';
+import './RainfallCharts.css';
 
 ChartJS.register(
   CategoryScale,
@@ -24,41 +24,39 @@ ChartJS.register(
   Legend
 );
 
-const WeatherCharts = ({ dailyData, weeklyData }) => {
+const RainfallCharts = ({ dailyRainData, weeklyData }) => {
   const [activeChart, setActiveChart] = useState('daily');
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setActiveChart(prev => prev === 'daily' ? 'weekly' : 'daily');
-        setIsTransitioning(false);
-      }, 500);
-    }, 5000);
+      setActiveChart(prev => {
+        if (prev === 'daily') return 'weekly';
+        return 'daily';
+      });
+    }, 30000);
 
     return () => clearInterval(interval);
   }, []);
 
   const dailyChartData = {
-    labels: dailyData.map(d => d.time),
+    labels: dailyRainData.map(data => data.time),
     datasets: [
       {
-        label: 'Daily Rainfall',
-        data: dailyData.map(d => d.rainfall),
-        borderColor: 'rgb(75, 192, 192)',
-        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+        label: 'Rainfall (mm)',
+        data: dailyRainData.map(data => data.rainfall),
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
         tension: 0.4
       }
     ]
   };
 
   const weeklyChartData = {
-    labels: weeklyData.map(d => d.day),
+    labels: weeklyData.map(data => data.day),
     datasets: [
       {
-        label: 'Weekly Rainfall',
-        data: weeklyData.map(d => d.rainfall),
+        label: 'Rainfall (mm)',
+        data: weeklyData.map(data => data.rainfall),
         backgroundColor: 'rgba(53, 162, 235, 0.8)',
         borderColor: 'rgb(53, 162, 235)',
         borderWidth: 1
@@ -71,36 +69,43 @@ const WeatherCharts = ({ dailyData, weeklyData }) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top',
+        display: false
       },
-      title: {
-        display: true,
-        text: activeChart === 'daily' ? 'Daily Rainfall' : 'Weekly Rainfall'
+      tooltip: {
+        mode: 'index',
+        intersect: false
       }
     },
     scales: {
       y: {
         beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Rainfall (mm)'
+        grid: {
+          display: false
+        }
+      },
+      x: {
+        grid: {
+          display: false
         }
       }
     }
   };
 
   return (
-    <div className="weather-charts">
+    <div className="rainfall-charts">
+      <h3 className="chart-title">
+        {activeChart === 'daily' ? 'Daily Rainfall' : 'Weekly Rainfall'}
+      </h3>
       <div className="chart-container">
-        <div className={`chart ${activeChart === 'daily' ? 'fade-in' : 'fade-out'}`}>
+        {activeChart === 'daily' ? (
           <Line data={dailyChartData} options={chartOptions} />
-        </div>
-        <div className={`chart ${activeChart === 'weekly' ? 'fade-in' : 'fade-out'}`}>
+        ) : (
           <Bar data={weeklyChartData} options={chartOptions} />
-        </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default WeatherCharts; 
+export { RainfallCharts };
+export default RainfallCharts; 
